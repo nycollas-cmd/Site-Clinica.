@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica Trychoderme Fios e pele</title>
+    <meta
+      name="description"
+      content="Clinica Trychoderme Fios e pele, agendamento profissional e painel administrativo para salão de beleza, cabelo e pele."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="authScreen" class="auth-screen">
+      <div class="auth-card">
+        <div class="auth-brand">
+          <div class="brand-mark">CT</div>
+          <div>
+            <p class="brand-name">Clinica Trychoderme</p>
+            <small>Fios e pele</small>
+          </div>
+        </div>
+
+        <h1>Login do sistema</h1>
+        <p class="auth-copy">Acesse para visualizar a clínica, agendar e acompanhar o painel administrativo.</p>
+
+        <form id="loginForm" class="login-form">
+          <label for="loginEmail">E-mail</label>
+          <input id="loginEmail" type="email" placeholder="seu@email.com" required />
+
+          <label for="loginPassword">Senha</label>
+          <input id="loginPassword" type="password" placeholder="Digite sua senha" required />
+
+          <button type="submit" class="btn btn-primary full-width">Entrar</button>
+          <p id="loginError" class="login-error"></p>
+        </form>
+      </div>
+    </div>
+
+    <div id="appPage" class="hidden">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <span>Atendimento premium • agenda com controle</span>
+          <a href="mailto:julianamorais00@icloud.com">julianamorais00@icloud.com</a>
+        </div>
+      </div>
+
+      <header class="site-header">
+        <div class="container header-inner">
+          <div class="brand" aria-label="Logo da clínica">
+            <div class="brand-mark">CT</div>
+            <div>
+              <p class="brand-name">Clinica Trychoderme</p>
+              <small>Fios e pele</small>
+            </div>
+          </div>
+
+          <nav class="main-nav" aria-label="Navegação principal">
+            <a href="#home">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#agendamento">Agendamento</a>
+            <a href="#dashboard">Painel</a>
+            <a href="#contato">Contato</a>
+          </nav>
+
+          <div class="header-actions">
+            <button type="button" id="logoutBtn" class="btn btn-ghost">Sair</button>
+            <a href="#agendamento" class="btn btn-primary">Agendar</a>
+          </div>
+        </div>
+      </header>
+
+      <a
+        class="whatsapp-float"
+        href="https://chat.whatsapp.com/JcKWdMee1VcI5DbGyjcMIn"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Entrar no grupo do WhatsApp"
+        title="Entrar no grupo do WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.61 5.92L0 24l6.39-1.66c1.76.96 3.73 1.46 5.67 1.46h.01c6.53 0 11.86-5.33 11.86-11.87 0-3.17-1.24-6.16-3.48-8.4Zm-8.46 18.22h-.01c-1.77 0-3.51-.47-5.02-1.35l-.36-.21-3.79 1 1.01-3.7-.24-.38a9.76 9.76 0 0 1-1.46-5.13c0-5.41 4.4-9.81 9.82-9.81 2.62 0 5.09 1.02 6.94 2.88a9.73 9.73 0 0 1 2.87 6.93c0 5.42-4.4 9.82-9.82 9.82Zm5.38-7.36c-.29-.15-1.72-.84-1.99-.94-.27-.1-.46-.15-.65.15-.19.29-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.49-.65-.5l-.56-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.16 3.01.14.19 2.01 3.08 4.87 4.28.68.29 1.22.46 1.64.59.68.22 1.3.19 1.79.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.08-.12-.29-.19-.61-.34Z"/>
+        </svg>
+      </a>
+
+      <main id="home">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Clínica especializada em fios e pele</span>
+              <h1>Beauty, saúde capilar e revitalização da pele.</h1>
+              <p>
+                Um espaço moderno para cuidado com cabelo, unhas, pele e autoestima, com atendimento
+                personalizado, elegante e profissional.
+              </p>
+              <div class="hero-actions">
+                <a href="#agendamento" class="btn btn-primary">Reservar horário</a>
+                <a href="#servicos" class="btn btn-secondary">Conhecer serviços</a>
+              </div>
+
+              <div class="hero-metrics">
+                <div>
+                  <strong>0</strong>
+                  <span>avaliações</span>
+                </div>
+                <div>
+                  <strong>0</strong>
+                  <span>clientes</span>
+                </div>
+                <div>
+                  <strong>0</strong>
+                  <span>agendamentos</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card">
+              <div class="card-badge">Agenda em aberto</div>
+              <h2>Sem agendamentos ainda</h2>
+              <ul class="schedule-list">
+                <li>
+                  <span>Disponibilidade</span>
+                  <strong>0</strong>
+                </li>
+                <li>
+                  <span>Próximos horários</span>
+                  <strong>0</strong>
+                </li>
+                <li>
+                  <span>Fichas confirmadas</span>
+                  <strong>0</strong>
+                </li>
+                <li>
+                  <span>Reservas neste mês</span>
+                  <strong>0</strong>
+                </li>
+              </ul>
+              <a href="#agendamento" class="link-gold">Reservar agora</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-strip">
+          <div class="container stats-grid">
+            <div>
+              <strong>0</strong>
+              <span>agendamentos</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>serviços ativos</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>usuários logados</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>pessoas no grupo</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="servicos" class="section-block">
+          <div class="container">
+            <div class="section-heading">
+              <span class="eyebrow">Atendimento completo</span>
+              <h2>Serviços de beleza, cabelo e pele sob medida.</h2>
+            </div>
+
+            <div id="serviceCards" class="services-grid"></div>
+          </div>
+        </section>
+
+        <section id="agendamento" class="section-block alternate-bg">
+          <div class="container booking-grid">
+            <div class="booking-copy">
+              <span class="eyebrow">Agendamento inteligente</span>
+              <h2>Reserve o tratamento ideal para você.</h2>
+              <p>
+                Escolha o serviço, veja o preço e informe a data e o horário. O sistema verifica se há
+                conflito com outro agendamento no mesmo período.
+              </p>
+              <ul class="list-check">
+                <li>Validação automática de horários</li>
+                <li>Preços em tempo real</li>
+                <li>Agenda organizada</li>
+              </ul>
+            </div>
+
+            <form id="bookingForm" class="booking-form" aria-label="Formulário de agendamento">
+              <div class="field-group">
+                <label for="clientName">Nome</label>
+                <input id="clientName" type="text" placeholder="Seu nome" required />
+              </div>
+
+              <div class="field-group">
+                <label for="bookingService">Serviço</label>
+                <select id="bookingService" required>
+                  <option value="">Cadastre primeiro um serviço</option>
+                </select>
+              </div>
+
+              <div id="selectedServiceInfo" class="selected-service-info">Selecione um serviço para ver o preço.</div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="bookingDate">Data</label>
+                  <input id="bookingDate" type="date" required />
+                </div>
+                <div class="field-group">
+                  <label for="bookingTime">Horário</label>
+                  <input id="bookingTime" type="time" required />
+                </div>
+              </div>
+
+              <p id="bookingMessage" class="booking-message" aria-live="polite"></p>
+              <button type="submit" class="btn btn-primary full-width">Confirmar agendamento</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="dashboard" class="section-block dashboard-block hidden-admin">
+          <div class="container dashboard-shell">
+            <div class="dashboard-main">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Painel administrativo</span>
+                  <h2>Agenda e usuários</h2>
+                </div>
+              </div>
+
+              <div class="stats-cards">
+                <div class="mini-card">
+                  <span>Agendamentos</span>
+                  <strong id="appointmentsCount">0</strong>
+                </div>
+                <div class="mini-card">
+                  <span>Hoje</span>
+                  <strong id="todayCount">0</strong>
+                </div>
+                <div class="mini-card">
+                  <span>Logins</span>
+                  <strong id="loginCount">0</strong>
+                </div>
+                <div class="mini-card">
+                  <span>Grupo</span>
+                  <strong id="whatsappCount">0</strong>
+                </div>
+              </div>
+
+              <div class="appointments-panel">
+                <div class="appointments-header">
+                  <h3>Agendamentos</h3>
+                  <button type="button" class="chip">Sistema</button>
+                </div>
+                <div id="appointmentsList" class="appointment-list empty-state">
+                  Nenhum agendamento cadastrado.
+                </div>
+              </div>
+            </div>
+
+            <aside class="side-panel">
+              <div class="whatsapp-panel">
+                <div class="whatsapp-card">
+                  <div class="whatsapp-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.61 5.92L0 24l6.39-1.66c1.76.96 3.73 1.46 5.67 1.46h.01c6.53 0 11.86-5.33 11.86-11.87 0-3.17-1.24-6.16-3.48-8.4Zm-8.46 18.22h-.01c-1.77 0-3.51-.47-5.02-1.35l-.36-.21-3.79 1 1.01-3.7-.24-.38a9.76 9.76 0 0 1-1.46-5.13c0-5.41 4.4-9.81 9.82-9.81 2.62 0 5.09 1.02 6.94 2.88a9.73 9.73 0 0 1 2.87 6.93c0 5.42-4.4 9.82-9.82 9.82Zm5.38-7.36c-.29-.15-1.72-.84-1.99-.94-.27-.1-.46-.15-.65.15-.19.29-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.49-.65-.5l-.56-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.16 3.01.14.19 2.01 3.08 4.87 4.28.68.29 1.22.46 1.64.59.68.22 1.3.19 1.79.11.55-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.08-.12-.29-.19-.61-.34Z"/></svg>
+                  </div>
+                  <div>
+                    <span class="eyebrow small">Grupo</span>
+                    <h3>WhatsApp</h3>
+                  </div>
+                </div>
+
+                <div class="whatsapp-metrics">
+                  <div>
+                    <strong id="groupMembersValue">0</strong>
+                    <span>Pessoas no grupo</span>
+                  </div>
+                  <div>
+                    <strong>0</strong>
+                    <span>entradas no mês</span>
+                  </div>
+                </div>
+
+                <a class="btn btn-primary full-width" href="https://chat.whatsapp.com/JcKWdMee1VcI5DbGyjcMIn" target="_blank" rel="noreferrer">Abrir grupo</a>
+              </div>
+
+              <div class="service-manager">
+                <div class="manager-header">
+                  <h3>Gerenciar serviços</h3>
+                </div>
+
+                <form id="serviceForm" class="service-form">
+                  <input type="hidden" id="serviceId" />
+
+                  <div class="field-group">
+                    <label for="serviceName">Nome do serviço</label>
+                    <input id="serviceName" type="text" placeholder="Ex: Corte feminino, limpeza de pele" required />
+                  </div>
+
+                  <div class="field-group">
+                    <label for="servicePrice">Preço</label>
+                    <input id="servicePrice" type="number" min="0" step="0.01" placeholder="Ex: 120.00" required />
+                  </div>
+
+                  <button type="submit" id="serviceSubmitBtn" class="btn btn-primary full-width">Adicionar opção</button>
+                  <button type="button" id="cancelEditService" class="btn btn-secondary full-width hidden">Cancelar edição</button>
+                </form>
+
+                <div class="service-list-wrap">
+                  <h4>Opções cadastradas</h4>
+                  <ul id="serviceList" class="service-list"></ul>
+                </div>
+              </div>
+
+              <div class="login-list-panel">
+                <div class="manager-header">
+                  <h3>Logins</h3>
+                </div>
+                <ul id="loginList" class="service-list"></ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contato" class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand" aria-label="Logo da clínica">
+              <div class="brand-mark">CT</div>
+              <div>
+                <p class="brand-name">Clinica Trychoderme</p>
+                <small>Fios e pele</small>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Contato</h4>
+            <p>WhatsApp: +55 (11) 99999-9999</p>
+            <p>Email: julianamorais00@icloud.com</p>
+          </div>
+          <div>
+            <h4>Horário</h4>
+            <p>Segunda a Sábado</p>
+            <p>09:00 às 19:00</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

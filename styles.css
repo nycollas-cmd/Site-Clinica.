@@ -1,0 +1,821 @@
+:root {
+  --bg: #0a0a0a;
+  --bg-soft: #121212;
+  --panel: #171717;
+  --panel-alt: #1d1d1d;
+  --text: #f9f3eb;
+  --muted: #d2c7b7;
+  --gold: #d4af37;
+  --gold-soft: #f0d77a;
+  --gold-deep: #8d6b12;
+  --line: rgba(212, 175, 55, 0.25);
+  --success: #3ddc97;
+  --danger: #ff6e6e;
+  --shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+button, input, select { font: inherit; }
+
+select,
+select option,
+input {
+  background: #0b0b0b;
+  color: var(--gold-soft);
+}
+
+select option {
+  background: #0b0b0b;
+  color: var(--gold-soft);
+}
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.topbar {
+  background: linear-gradient(90deg, #111111 0%, #1a1a1a 100%);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  gap: 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90px;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #111;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1.14rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.brand small { color: var(--muted); }
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  color: #f4eedf;
+  font-size: 0.95rem;
+}
+
+.main-nav a { position: relative; opacity: 0.92; }
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after { width: 100%; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #111;
+  box-shadow: 0 14px 28px rgba(212, 175, 55, 0.28);
+}
+
+.btn-secondary,
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.btn-ghost { padding-inline: 1.2rem; }
+
+.small { padding: 0.7rem 1rem; font-size: 0.85rem; }
+
+.full-width { width: 100%; }
+
+.auth-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, rgba(212, 175, 55, 0.16), transparent 38%), #0b0b0b;
+  padding: 2rem 1rem;
+}
+
+.selected-service-info {
+  margin: 0 0 1rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(212, 175, 55, 0.06);
+  color: var(--gold-soft);
+  font-weight: 600;
+}
+
+.auth-card {
+  width: min(470px, calc(100% - 1.5rem));
+  background: rgba(17, 17, 17, 0.96);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.auth-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.auth-copy {
+  margin: 0.75rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.login-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.login-form label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.login-form input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+}
+
+.login-error {
+  min-height: 1.2rem;
+  margin: 0.25rem 0 0;
+  color: var(--danger);
+  font-size: 0.82rem;
+}
+
+.hero {
+  padding: 4.5rem 0 2.5rem;
+  background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.14), transparent 30%), linear-gradient(180deg, #0d0d0d 0%, #121212 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.eyebrow.small { font-size: 0.68rem; }
+
+.hero-copy h1,
+.section-heading h2,
+.booking-copy h2,
+.panel-head h2 { margin: 0; font-family: "Cormorant Garamond", serif; line-height: 0.98; letter-spacing: -0.02em; }
+
+.hero-copy h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  margin-top: 1rem;
+  max-width: 560px;
+}
+
+.hero-copy p,
+.booking-copy p,
+.service-card p,
+.login-note,
+.auth-copy { color: var(--muted); }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.25rem;
+}
+
+.hero-metrics div { display: grid; gap: 0.25rem; }
+
+.hero-metrics strong,
+.stats-strip strong,
+.mini-card strong,
+.whatsapp-metrics strong { font-size: clamp(1.5rem, 2vw, 2.2rem); color: var(--gold-soft); }
+
+.hero-metrics span,
+.stats-strip span,
+.mini-card span,
+.whatsapp-metrics span { font-size: 0.8rem; color: var(--muted); }
+
+.hero-card {
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(28, 28, 28, 0.9), rgba(17, 17, 17, 0.96));
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--gold-soft);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.hero-card h2 {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.schedule-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.schedule-list span { color: var(--muted); }
+
+.link-gold { color: var(--gold-soft); font-weight: 600; }
+
+.stats-strip { padding: 0.5rem 0 3rem; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.stats-grid > div {
+  display: grid;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.section-block { padding: 4.5rem 0; }
+
+.section-heading { margin-bottom: 2rem; max-width: 720px; }
+
+.section-heading h2 {
+  margin-top: 0.8rem;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.service-card {
+  padding: 1.6rem;
+  background: linear-gradient(180deg, rgba(21, 21, 21, 1), rgba(14, 14, 14, 1));
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.empty-card {
+  grid-column: 1 / -1;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  font-size: 1.6rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.service-card h3 { margin: 1rem 0 0.5rem; font-size: 1.4rem; }
+
+.service-card span {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+
+.alternate-bg { background: rgba(255, 255, 255, 0.02); }
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.list-check {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+  color: var(--text);
+}
+
+.list-check li::before {
+  content: "✓";
+  color: var(--gold-soft);
+  margin-right: 0.75rem;
+  font-weight: 700;
+}
+
+.booking-form {
+  background: #121212;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.field-group {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+label {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+input, select {
+  width: 100%;
+  background: rgba(10, 10, 10, 0.96);
+  color: var(--gold-soft);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+}
+
+select option {
+  background: #0b0b0b;
+  color: var(--gold-soft);
+}
+
+input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
+.booking-message {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  color: var(--success);
+  min-height: 1.1rem;
+}
+
+.booking-message.error { color: var(--danger); }
+
+.dashboard-shell {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+
+.dashboard-main,
+.side-panel {
+  background: rgba(17, 17, 17, 0.96);
+  border-radius: 24px;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  padding: 1.4rem;
+}
+
+.panel-head,
+.appointments-header,
+.manager-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panel-head h2 { margin-top: 0.5rem; font-size: clamp(2rem, 3vw, 2.6rem); }
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.mini-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 18px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.appointments-panel {
+  margin-top: 1.8rem;
+}
+
+.chip {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--gold-soft);
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+}
+
+.appointment-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.appointment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+}
+
+.appointment-item strong,
+.appointment-item span,
+.meta time,
+.meta span { display: block; }
+
+.appointment-item strong { font-size: 1rem; }
+
+.appointment-item span,
+.meta span { color: var(--muted); font-size: 0.8rem; }
+
+.meta { text-align: right; }
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.whatsapp-panel,
+.service-manager,
+.login-list-panel {
+  background: rgba(17, 17, 17, 0.96);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 22px;
+  padding: 1.1rem;
+}
+
+.whatsapp-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.whatsapp-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #d9b53c, #f6dc7f);
+  box-shadow: 0 9px 20px rgba(212, 175, 55, 0.24);
+}
+
+.whatsapp-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: #111;
+}
+
+.whatsapp-metrics {
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem 0 0.25rem;
+}
+
+.whatsapp-metrics > div { display: grid; gap: 0.2rem; }
+
+.service-form {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.service-list-wrap,
+.login-list-panel {
+  margin-top: 1rem;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.manager-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 14px;
+  padding: 0.8rem 0.9rem;
+}
+
+.manager-item strong,
+.manager-item span {
+  display: block;
+}
+
+.manager-item span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: transparent;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.empty-row {
+  color: var(--muted);
+  list-style: none;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px dashed rgba(212, 175, 55, 0.18);
+}
+
+.empty-state {
+  color: var(--muted);
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border: 1px dashed rgba(212, 175, 55, 0.14);
+}
+
+.site-footer {
+  padding: 2.2rem 0 3rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  background: #0d0d0d;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.site-footer h4 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+
+.site-footer p { margin: 0.4rem 0; color: var(--muted); }
+
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  top: 120px;
+  z-index: 50;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #f6dc7f, #d4af37);
+  box-shadow: 0 16px 30px rgba(212, 175, 55, 0.38);
+  border: 3px solid rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover { transform: translateY(-2px) scale(1.02); }
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: #111;
+}
+
+.hidden,
+.hidden-admin {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
+  .header-inner,
+  .main-nav,
+  .hero-grid,
+  .booking-grid,
+  .dashboard-shell,
+  .services-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .main-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whatsapp-float {
+    top: auto;
+    right: 18px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 3rem; }
+
+  .hero-actions,
+  .header-actions,
+  .field-row,
+  .stats-grid,
+  .stats-cards {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .topbar-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.8rem 0;
+  }
+
+  .main-nav {
+    gap: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .hero-copy h1 { font-size: 3.1rem; }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    width: 100%;
+  }
+
+  .header-actions { width: 100%; }
+}
